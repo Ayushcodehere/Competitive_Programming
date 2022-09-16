@@ -7,10 +7,9 @@ int factorial(int n)
 {
     if (n == 0)
         return 1;
-    int factorial = 1;
-    for (int i = 2; i <= n; i++)
-        factorial = factorial * i;
-    return factorial;
+    else{
+        return n*factorial(n-1);
+    }
 }
 
 int nCr(int n, int r)
