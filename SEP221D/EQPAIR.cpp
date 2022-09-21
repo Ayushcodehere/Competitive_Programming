@@ -3,53 +3,28 @@
 #include <algorithm>
 using namespace std;
 
-int factorial(int n)
-{
-    if (n == 0)
-        return 1;
-    else{
-        return n*factorial(n-1);
+int solve(){
+    int n, ele;
+    scanf("%d", &n);
+    int arr[100]={0};
+    for(int i=0;i<n;i++){
+        scanf("%d", &ele);
+        arr[ele]+=1;
     }
+    int ans=0;
+    for(int i=0;i<100;i++){
+        if(arr[i]>2){
+            ans+=arr[i]*(arr[i]-1)/2;
+        }
+    }
+    return ans;
 }
 
-int nCr(int n, int r)
-{
-    return factorial(n) / (factorial(r) * factorial(n - r));
-}
-
-int main()
-{
+int main(){
     int t;
-    cin >> t;
-    while (t--)
-    {
-        int n, ele, gp = 0;
-        cin >> n;
-        vector<int> arr;
-        for (int i = 0; i < n; i++)
-        {
-            cin >> ele;
-            arr.push_back(ele);
-        }
-        sort(arr.begin(), arr.end());
-        int i=0,j=0;
-        while(i<n && j<=n){
-            if(arr[j]==arr[i]){
-                j++;
-                continue;
-            }
-            else if(arr[j]!=arr[i]){
-                if((j-i)==1){
-                    i=j;
-                    continue;
-                }
-                else{
-                    gp+=nCr(j-i,2);
-                    i=j;
-                }
-            }
-        }
-        cout<<gp<<endl;
+    scanf("%d", &t);
+    while(t--){
+        printf("%d\n", solve());
     }
     return 0;
 }
