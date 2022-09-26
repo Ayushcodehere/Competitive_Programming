@@ -3,7 +3,11 @@ using namespace std;
 
 void solve(int n)
 {
-    if (n < 5)
+    if (n == 4)
+    {
+        cout << "2 4 1 3 \n";
+    }
+    else if (n < 5)
     {
         cout << -1 << "\n";
     }
